@@ -1,0 +1,57 @@
+Vagrant.configure(2) do |config|
+
+  config.vm.define "master1" do |master1|
+    master1.vm.box = "centos/7"
+    master1.vm.hostname = "master1.example.com"
+    master1.vm.network "private_network", ip: "192.168.33.10"
+    master1.vm.provider :virtualbox do |vb|
+      vb.memory = "4096"
+      vb.cpus = "2"
+    end
+  end
+  config.vm.define "master2" do |master2|
+    master2.vm.box = "centos/7"
+    master2.vm.hostname = "master2.example.com"
+    master2.vm.network "private_network",ip:"192.168.33.11"
+    master2.vm.provider :virtualbox do |vb|
+      vb.memory = "4096"
+      vb.cpus = "2"
+    end
+  end
+  config.vm.define "master3" do |master3|
+    master3.vm.box = "centos/7"
+    master3.vm.hostname = "master3.example.com"
+    master3.vm.network "private_network",ip:"192.168.33.12"
+    master3.vm.provider :virtualbox do |vb|
+      vb.memory = "4096"
+      vb.cpus = "2"
+    end
+  end
+  config.vm.define "lb" do |lb|
+    lb.vm.box = "centos/7"
+    lb.vm.hostname = "lb.example.com"
+    lb.vm.network "private_network",ip:"192.168.33.15"
+    lb.vm.provider :virtualbox do |vb|
+      vb.memory = "4096"
+      vb.cpus = "2"
+    end
+  end
+  config.vm.define "node1" do |node1|
+    node1.vm.box = "centos/7"
+    node1.vm.hostname = "node1.example.com"
+    node1.vm.network "private_network",ip:"192.168.33.20"
+    node1.vm.provider :virtualbox do |vb|
+      vb.memory = "4096"
+      vb.cpus = "2"
+    end
+  end
+  config.vm.define "node2" do |node2|
+    node2.vm.box = "centos/7"
+    node2.vm.hostname = "node2.example.com"
+    node2.vm.network "private_network",ip:"192.168.33.21"
+    node2.vm.provider :virtualbox do |vb|
+      vb.memory = "4096"
+      vb.cpus = "2"
+    end
+  end
+end
